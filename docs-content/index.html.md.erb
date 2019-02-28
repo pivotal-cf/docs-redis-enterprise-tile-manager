@@ -8,25 +8,27 @@ owner: Partners
 This documentation describes the Redis Enterprise (RE) Tile Manager for Pivotal Cloud Foundry (PCF). 
 The RE Tile Manager allows PCF users to deploy multiple RE tiles on a single foundation. 
 
-## <a id='overview'></a>Overview
+## <a id="overview"></a>Overview
 
-The Redis Enterprise(RE) Tile Manager allows PCF users to deploy multiple Redis Enterprise for PCF tiles on a single foundation. 
-Since each RE tile manages a single RE cluster, RE Tile Manager enables the deployment and independent management of multiple RE clusters providing:
-* Database isolation - for use cases not suitable for multi-tenancy of databases on a single cluster and requiring complete database isolation
-* Independent cluster administration - for organizations requiring independent administration of individual clusters by different IT/Dev-Ops teams 
+The Redis Enterprise (RE) Tile Manager allows PCF users to deploy multiple Redis Enterprise for PCF tiles on a single foundation. 
+Because each RE tile manages a single RE cluster, RE Tile Manager enables the deployment and independent management of multiple
+RE clusters, allowing for:
 
-## <a id='features'></a>Key Features
+* Database isolation - For use cases that cannot use multi-tenancy of databases on a single cluster and require complete database isolation
+* Independent cluster administration - For organizations that require independent administration of individual clusters by separate IT or DevOps teams 
 
-Redis Enterprise Tile Manager for PCF includes the following key features:
+## <a id="features"></a>Key Features
+
+Redis Enterprise Tile Manager for PCF includes these key features:
 
 * Deploy one or more Redis Enterprise for PCF tile deployments through a Web UI
-* Provides visibility into the currently installed RE tiles, their names, and their port assignment
-* Allow for TCP port range assignment of each tile while ensuring no overlap occurs
-* Allows for the deletion of RE tiles
+* Visibility into the currently installed RE tiles, their names, and their port assignment
+* Ability to assign TCP port ranges to each tile without IP overlap
+* Ability to delete RE tiles
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about Redis Enterprise Tile Manager for PCF.
+This table provides version and version-support information about Redis Enterprise Tile Manager for PCF.
 
 <table class="nice">
     <th>Element</th>
@@ -68,22 +70,22 @@ The following table provides version and version-support information about Redis
 
 ## <a id="reqs"></a>Requirements
 
-Redis Enterprise Tile Manager for PCF has the following requirements:
+Redis Enterprise Tile Manager for PCF requires:
 
-+ PAS Maximum Disk Quota per App must be set to, at least, 4096MB before installation of the RE Tile Manager
-
-+ The deploy-all errand must have an instance size of, at least, 4GB of RAM and 8GB disk size
+* PAS Maximum Disk Quota per App set to at least 4096MB before you install the RE Tile Manager
+* The instance size of the deploy-all errand to be at least 4GB of RAM and 8GB disk size
 
 ## <a id="limitations"></a>Limitations
 
-When assigning port ranges to managed RE tiles, admin must ensure these ports are available for use.
+When you assign port ranges to managed RE tiles, you must make sure that these ports are available for use.
 
 ## <a id="feedback"></a>Feedback
 
-If you have a feature request, questions, or information about a bug, please email
-[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to [Redis Labs support](mailto:support@redislabs.com)
+If you have a feature request, questions, or information about a bug,
+send an email either to the [Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or to [Redis Labs support](mailto:support@redislabs.com).
 
-## <a id='license'></a>License
+## <a id="license"></a>License
 
-Customers interested in using Redis Enterprise Tile Manager for PCF can download the tile and install it. RE Tile Manager can be used with a Redis Enterprise Cluster for PCF trial license. Limitations apply. 
+Customers interested in trying out the Redis Enterprise Tile Manager for PCF can download the tile and install it with the trial license. (Limitations apply)
+
 Use in production and 24/7 support requires a production license for Redis Enterprise Cluster for PCF. Contact a [Redis Labs sales representative](mailto:sales@redislabs.com) for more information.

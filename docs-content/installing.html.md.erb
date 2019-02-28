@@ -5,30 +5,35 @@ owner: Partners
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to install and configure Redis Enterprise Tile Manager for PCF.
+This topic describes how to install and configure the Redis Enterprise Tile Manager for PCF tile.
 
 ##<a id='install'></a> Install and Configure Redis Enterprise Tile Manager for PCF
 
-To install the Redis Enterprise Tile Manager for PCF file on the Ops Manager Installation Dashboard, do the following:
+To install the Redis Enterprise Tile Manager for PCF file on the Ops Manager Installation Dashboard:
 
-1. Download the product file from Pivotal Network.
+1. Download the product file from [Pivotal Network](http://network.pivotal.io).
 
-1. Navigate to the Ops Manager Installation Dashboard and click **Import a Product** to upload the product file. 
+1. Add the tile to the Ops Manager Installation Dashboard:
 
-1. Under the **Import a Product** button, click **+** next to the version number of Redis Enterprise Tile Manager for PCF. 
-This adds the tile to your staging area.
+    1. Go to the Ops Manager Installation Dashboard.
+    1. Click **Import a Product** to upload the product file. 
+    1. In the list of products in **Import a Product**, click **+** next to the version number of Redis Enterprise Tile Manager for PCF.
+
+    This adds the tile to your staging area.
 
 1. Click the newly added **Redis Enterprise Tile Manager for PCF** tile.
 
-1. From the **Settings** tab, Navigate to the **Assign AZs and Network** section on the right navigation bar. Ensure you have a network selected for the tile manager to use.
+1. In the **Settings** tab, go to the **Assign AZs and Network** section on the right navigation bar.
 
-1. Navigate to **Configuration** and complete the following fields: 
-  * **Ops Manager URL**: Provide the Ops Manager URL.
-  * **TCP Port Range Start**: If using TCP routing, provide the lowest TCP port number that can be used for TCP routing. Otherwise, enter 0.
-  * **TCP Port Range End**:   If using TCP routing, provide the highest TCP port number that can be used for TCP routing. Otherwise, enter 0.
+    Make sure you have a network selected for the tile manager to use.
 
-1. Navigate to **Resource Config** and ensure that the **deploy-all** job is assigned an instance with at least 8GB of RAM and 16GB of disk space.
+1. Go to **Configuration** and enter these details:
 
+    * **Ops Manager URL**: Enter the Ops Manager URL.
+    * **TCP Port Range Start**: If you use TCP routing, enter the lowest TCP port number that can be used for TCP routing. Otherwise, enter 0.
+    * **TCP Port Range End**:   If you use TCP routing, enter the highest TCP port number that can be used for TCP routing. Otherwise, enter 0.
+
+1. Go to **Resource Config** and make sure that the **deploy-all** job is assigned an instance with at least 8GB of RAM and 16GB of disk space.
 
 1. Click **Save**.
 
