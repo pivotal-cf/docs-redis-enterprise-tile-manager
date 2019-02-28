@@ -1,85 +1,55 @@
 ---
-title: YOUR-PRODUCT-NAME (Beta)
+title: Redis Enterprise Tile Manager for PCF
 owner: Partners
 ---
 
 <strong><%= modified_date %></strong>
 
-**If this product is in beta, keep and edit the warning note below.**
-<p class="note warning">
-<strong>WARNING! </strong>
-The PRODUCT-NAME for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
-Do not use this product in a PCF production environment.
-</p>
-
-**This topic begins with a brief description of what the product tile (e.g. Apigee Edge Service Broker for PCF) does, 
-whereas the Overview section below describes what the service itself (e.g. Apigee Edge) does. See below for an example.**
-
-This documentation describes the Apigee Edge Service Broker for Pivotal Cloud Foundry (PCF). The Apigee Edge Service 
-Broker for PCF enables developers to manage APIs for their PCF apps through the Apigee Edge management console.
-
-**Note**: This description will appear under **OVERVIEW** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
+This documentation describes the Redis Enterprise (RE) Tile Manager for Pivotal Cloud Foundry (PCF). 
+The RE Tile Manager allows PCF users to deploy multiple RE tiles on a single foundation. 
 
 ## <a id='overview'></a>Overview
 
-**The overview describes the service that your product offers to PCF developers. 
-Make sure to overview the features of the integration.
-Don't focus only on the overview of your product that is being integrated.
-See below for an example.**
-
-The Apigee Edge Service Broker for PCF registers a service broker with PCF and exposes its service plans on the 
-Marketplace. Developers can then create service plan instances using Apps Manager or the Cloud Foundry Command 
-Line Interface (cf CLI) and bind them to their apps.
-
-Creating an Apigee Edge for PCF service instance and binding it to an app creates an Apigee Edge API proxy that 
-handles requests for the app. This lets developers use the Apigee Edge management console to manage API request 
-handling between clients and the app.
-
-**Note**: This overview will appear under **OVERVIEW**, combined with the description above in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io).
+The Redis Enterprise(RE) Tile Manager allows PCF users to deploy multiple Redis Enterprise for PCF tiles on a single foundation. 
+Since each RE tile manages a single RE cluster, RE Tile Manager enables the deployment and independent management of multiple RE clusters providing:
+* Database isolation - for use cases not suitable for multi-tenancy of databases on a single cluster and requiring complete database isolation
+* Independent cluster administration - for organizations requiring independent administration of individual clusters by different IT/Dev-Ops teams 
 
 ## <a id='features'></a>Key Features
 
-**Note**: This feature list will appear under **FEATURES** in the tile's listing on 
-[Pivotal Network](http://network.pivotal.io). 
-Make sure you list the key features of the tile (the integration). 
-We cannot accept a list of the key features of your product that we are integrating.
+Redis Enterprise Tile Manager for PCF includes the following key features:
 
-YOUR-PRODUCT-NAME includes the following key features:
-
-* Feature one
-* Feature two
-* Feature three
-
-
+* Deploy one or more Redis Enterprise for PCF tile deployments through a Web UI
+* Provides visibility into the currently installed RE tiles, their names, and their port assignment
+* Allow for TCP port range assignment of each tile while ensuring no overlap occurs
+* Allows for the deletion of RE tiles
 
 ## <a id="snapshot"></a>Product Snapshot
 
-The following table provides version and version-support information about PRODUCT-NAME.
+The following table provides version and version-support information about Redis Enterprise Tile Manager for PCF.
 
 <table class="nice">
     <th>Element</th>
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>vYOUR-VERSION-NUMBER</td>
+        <td>v1.0.17</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>YOUR-RELEASE-DATE (Ex: July 1, 2019)</td>
+        <td>February 28, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>YOUR-SOFTWARE-COMPONENT-VERSION-NUMBER</td>
+        <td>Redis Enterprise 5.4.0</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>YOUR-COMPATIBLE-OPS-MAN-VERSION (Ex. 2.2, 2.3, and 2.4)</td>
+        <td>v2.4.x</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Application Service version(s)</td>
-        <td>YOUR-COMPATIBLE-PIVOTAL-APPLICATION-SERVICE-VERSION (Ex. 2.2, 2.3, and 2.4)</td>
+        <td>v2.4.x</td>
     </tr>
     <tr>
        <td>BOSH stemcell version</td>
@@ -87,36 +57,33 @@ The following table provides version and version-support information about PRODU
     </tr>
     <tr>
         <td>IaaS support</td>
-        <td>AWS?, Azure?, GCP?, OpenStack?, and vSphere?</td>
+        <td>AWS, Azure, and vSphere</td>
     </tr>
     <tr>
         <td>IPsec support?</td>
-        <td>[Yes or No]</td>
+        <td>No</td>
     </tr>
 </table>
 
 
 ## <a id="reqs"></a>Requirements
 
-**Provide any general or specific requirements, prerequisites, or dependencies here. 
-A general requirement might be something like, "An AppDynamics account." 
-A specific requirement might be something like, "Packaging Dependencies for Offline Buildpacks."**
+Redis Enterprise Tile Manager for PCF has the following requirements:
 
-YOUR-PRODUCT-NAME has the following requirements:
++ PAS Maximum Disk Quota per App must be set to, at least, 4096MB before installation of the RE Tile Manager
 
-+ PREREQUISITE-1
-
-+ PREREQUISITE-2
++ The deploy-all errand must have an instance size of, at least, 4GB of RAM and 8GB disk size
 
 ## <a id="limitations"></a>Limitations
 
-**List any known limitations.**
+When assigning port ranges to managed RE tiles, admin must ensure these ports are available for use.
 
 ## <a id="feedback"></a>Feedback
 
 If you have a feature request, questions, or information about a bug, please email
-[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to YOUR-SUPPORT-EMAIL.
+[Pivotal Cloud Foundry Feedback](mailto:cf-feedback@pivotal.io) list or send an email to [Redis Labs support](mailto:support@redislabs.com)
 
 ## <a id='license'></a>License
 
-**List any license information here.**
+Customers interested in using Redis Enterprise Tile Manager for PCF can download the tile and install it. RE Tile Manager can be used with a Redis Enterprise Cluster for PCF trial license. Limitations apply. 
+Use in production and 24/7 support requires a production license for Redis Enterprise Cluster for PCF. Contact a [Redis Labs sales representative](mailto:sales@redislabs.com) for more information.
