@@ -5,41 +5,59 @@ owner: Partners
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to install and configure the Redis Enterprise Tile Manager for PCF tile.
+This topic describes how to install and configure the **Redis Enterprise Tile Manager for PCF** tile.
 
 ##<a id='install'></a> Install and Configure Redis Enterprise Tile Manager for PCF
 
-To install the Redis Enterprise Tile Manager for PCF file on the Ops Manager Installation Dashboard:
+To install the Redis Enterprise Tile Manager for PCF tile on the Ops Manager Installation Dashboard:
 
-1. Download the product file from [Pivotal Network](http://network.pivotal.io).
+1. Download the product file from PivNet [Redis Enterprise Tile Manager for PCF](https://network.pivotal.io/products/re-tile-manager/) (login required).
 
 1. Add the tile to the Ops Manager Installation Dashboard:
 
     1. Go to the Ops Manager Installation Dashboard.
-    1. Click **Import a Product** to upload the product file. 
-    1. In the list of products in **Import a Product**, click **+** next to the version number
-       of Redis Enterprise Tile Manager for PCF.
-
-    This adds the tile to your staging area.
-
+    1. Click **Import a Product** to upload the tile file you have downloaded from PivNet in step 1. Wait until the upload process is completed.
+    1. Once the upload is successfully completed, find it in the list of products, under **Import a Product**, and click **+** next to the version number of Redis Enterprise Tile Manager for PCF. This adds the tile to your staging area.
+    ![Import button](./images/pcf_tm_import_product.png)
+    
 1. Click the newly added **Redis Enterprise Tile Manager for PCF** tile.
+    ![Import button](./images/pcf_tm_staged.png)
 
-1. In the **Settings** tab, go to the **Assign AZs and Network** section on the right navigation bar.
+1. In the **Settings** tab, go to the **Assign AZs and Network** section on the left navigation bar.
 
-    Make sure you have a network selected for the tile manager to use.
+    1. Make sure you have a network selected for the tile manager to use.
+    ![Import button](./images/pcf_tm_networks.png)
+    
+    1. Click **Save** and look for the indication that jobs were successfully updated
+    ![Import button](./images/pcf_tm_network_jobs.png)
 
-1. Go to **Configuration** and enter these details:
+1. Go to **Configuration** and enter the following details:
 
-    * **Ops Manager URL**: Enter the Ops Manager URL.
-    * **TCP Port Range Start**: If you use TCP routing, enter the lowest TCP port number that can be used for TCP routing.
-      Otherwise, enter 0.
-    * **TCP Port Range End**:   If you use TCP routing, enter the highest TCP port number that can be used for TCP routing.
-      Otherwise, enter 0.
+    1. **Ops Manager URL**: Enter the Ops Manager URL.
+    
+    1. **TCP Port Range Start**: If you use TCP routing, enter the lowest TCP port number that can be used for TCP routing. Otherwise, enter 0.
+    
+    1. **TCP Port Range End**:   If you use TCP routing, enter the highest TCP port number that can be used for TCP routing. Otherwise, enter 0.
+      
+    <p class="note"><strong>Note:</strong> [TCP Router must be enabled in PAS] (https://docs.pivotal.io/pivotalcf/2-5/opsguide/tcp-routing-ert-config.html). In order to determine the available TCP Router port range refer to the PAS configuration.
+    Alternatively, `cf login` into PCF and execute `cf curl /routing/v1/router_groups`.
+    For more information, see [Enabling TCP Routing] (https://docs.cloudfoundry.org/adminguide/enabling-tcp-routing.html) in Cloud Foundry Documentation.
 
-1. Go to **Resource Config** and make sure that the **deploy-all** job is assigned an instance
-   with at least 8&nbsp;GB of RAM and 1&nbsp;6GB of disk space.
-
-1. Click **Save**.
-
-1. Return to the Ops Manager Installation Dashboard and click **Apply changes** to install
-   the Redis Enterprise Tile Manager for PCF tile.
+    For example, this is a configuration for a TCP Router enabled deployment:
+    ![Import button](./images/pcf_tm_configuration_router.png)
+    
+    For example, this is a configuration for a deployment without TCP Router:
+    ![Import button](./images/pcf_tm_configuration_no_router.png)
+    
+    1. Click **Save** and look for an indication that configuration was successful.
+    ![Import button](./images/pcf_tm_updated_settings.png)
+    
+1. Return to the Ops Manager Installation Dashboard and make sure the Redis Enterprise Tile Manager is now fully configured, as indicated by the green bar at the bottom of the tile.
+    ![Import button](./images/pcf_tm_configured.png)
+    
+1. Click **Apply changes** to install the Redis Enterprise Tile Manager for PCF tile.
+    ![Import button](./images/pcf_tm_apply_changes.png)
+    
+1. Verify that changes were applied successfully.
+    
+You have now completed the installation of Redis Enterprise Tile Manager and it is now ready for use.
