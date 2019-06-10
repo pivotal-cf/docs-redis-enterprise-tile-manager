@@ -5,12 +5,70 @@ owner: Partners
 
 <strong><%= modified_date %></strong>
 
-This topic describes how to use Redis Enterprise Tile Manager for PCF.
+This topic describes how to use **Redis Enterprise Tile Manager for PCF**.
 
-##<a id='using'></a> Using Redis Enterprise Tile Manager for PCF
+##<a id='using-topic-1'></a> Overview
 
-### Launching Redis Enterprise Tile Manager for PCF
+The Redis Enterprise Tile Manager for PCF allows operators to deploy and manage multiple Redis Enterprise for PCF clusters on a single PCF foundation by enabling the following functionality:
 
-Launch Redis Enterprise Tile Manager by determining your cluster FQDN 
-or fix IP Address and prepending it with api-re-tile-manager.
+1. Deploying (staging) one or more Redis Enterprise for PCF tiles on a foundation
 
+	1. Providing unique resource naming to avoid resource collisions.
+	1. Managing dedicated TCP Port ranges per each staged tile, to ensure TCP Router functionality is maintained.
+	
+1. Managing the lifecycle of multiple deployed tiles, configuration changes and upgrades.
+	
+1. Providing a Web UI for operators to access the full set of functionality enabled by the product.
+
+1. Providing a REST API and API documentation to access product functionality programmatically (IaC).
+
+<p class="note"><strong>Note:</strong> Tile and deployment deletion are not supported by the Redis Enterprise Tile Manager and must be performed in PCF Ops Manager.
+</p>
+
+## <a id='using-topic-2'></a> Launching Redis Enterprise Tile Manager for PCF Web UI
+
+1. Launch Redis Enterprise Tile Manager by determining your PCF system (sys) domain name, or fixed IP Address, and prepending it with `api-re-tile-manager`.
+
+1. Find the system domain in the PAS tile configuration, under Settings -> Domains.
+    ![Import button](./images/pcf_tm_pas_sys.png)
+    
+1. Prepend the system domain name with `api-re-tile-manager` and access via a Web browser.
+    ![Import button](./images/pcf_tm_webui_url.png)
+    
+1. Enter your Ops Manager admin credentials and click *Login*.
+    ![Import button](./images/pcf_tm_login.png)
+    
+1. Upon successful login, you will reach the landing page, where you will find a listing of the currently configured and staged Redis Enteprise for PCF tiles
+    ![Import button](./images/pcf_tm_deployed_vs_ops_deployed.png)
+    
+<p class="note"><strong>Note:</strong> Ops Manager configured or staged Redis Enterprise for PCF tiles (ones that have not been configured through the Redis Enterprise Tile Manager for PCF) will be listed with the Redis Enterprise Logo instead of the instance name (Tile ID). Tiles that have been staged with the Redis Enterprise Tile Manager for PCF will have their instance name explicitly listed. <br><br>It is the user responsibility to ensure that port overlap does not occur for Sentinel and TCP Router ports between tiles that have been configured outside the Tile Manager and ones configured inside the Tile Manager.
+ The Tile Manager will provide this functionality only for tiles staged by the Tile Manager.
+</p>
+
+## <a id='using-topic-3'></a> Staging a new Redis Enterprise for PCF tile
+
+1. From the Web UI landing page, click *+ Add* 
+
+1. A *New Tile Configuration* window will appear
+    ![Import button](./images/pcf_tm_new_tile_config.png)
+    
+1. Type in a Tile ID and the number of TCP Router ports you would like to reserve for this tile. The actual port numbers will be assigned sequentially, starting from the lowest port number available within the provided range and up to the number of ports requested. In case the number of ports required exceeds the number of available ports, an error message will be displayed. 
+<p class="note"><strong>Note:</strong> If TCP Router is not used, please specify 0 (zero) in the *# Reserved ports* field in order to disable TCP Router functionality for the tile being staged.
+</p>
+
+    ![Import button](./images/pcf_tm_creation_in_progress.png)
+    
+1. After a short period, typically one minute, click *Refresh*. The tile will move to *staged* status.
+    ![Import button](./images/pcf_tm_staged_status.png)
+
+1. In order to complete the deployment of the staged tile, return to **Ops Manager**
+    ![Import button](./images/pcf_tm_staged_tile_2.png)
+    
+1. Follow the instructions in Pivotal Partner Documentation on [Configure and Deploy Redis Enterprise for PCF](https://docs.pivotal.io/partners/redis-labs-enterprise-pack/installing.html#install-step2).
+
+## <a id='using-topic-4'></a> Using the Redis Enterprise Tile Manager with REST API 
+
+1. Login to Redis Enterprise Tile Manager for PCF Web UI as described [above](#using-topic-2).
+
+1. Follow the link at the bottom of the landing page titled "Api Documentation". This will lead you to a swagger.io page providing detailed documentation and in-browser testing suite for the REST API functionalities available.
+![Import button](./images/pcf_tm_swagger_ui.png)
