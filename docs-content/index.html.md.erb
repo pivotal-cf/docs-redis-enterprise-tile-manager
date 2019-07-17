@@ -5,25 +5,26 @@ owner: Partners
 
 <p class="note warning">
 <strong>WARNING! </strong>
-The Redis Enterprise Tile Manager for PCF tile is currently in beta and is intended for evaluation and test purposes only. 
+The Redis Enterprise Tile Manager for PCF tile is currently in beta and is intended for evaluation and test purposes only.
 Do not use this product in a PCF production environment.
 </p>
 
 <strong><%= modified_date %></strong>
 
-This documentation describes the Redis Enterprise (RE) Tile Manager for Pivotal Cloud Foundry (PCF). 
-The RE Tile Manager allows PCF users to deploy multiple RE tiles on a single foundation. 
+This documentation describes the Redis Enterprise (RE) Tile Manager for Pivotal Cloud Foundry (PCF).
+The RE Tile Manager allows PCF users to deploy multiple RE tiles on a single foundation.
 
 ## <a id="overview"></a>Overview
 
-The Redis Enterprise (RE) Tile Manager allows PCF users to deploy multiple Redis Enterprise for PCF tiles on a single foundation. 
+The Redis Enterprise (RE) Tile Manager allows PCF users to deploy multiple Redis Enterprise for PCF tiles on a single foundation.
 Because each RE tile manages a single RE cluster, RE Tile Manager enables the deployment and independent management of multiple
 RE clusters, allowing for:
 
 * Database isolation - For use cases that cannot use multi-tenancy of databases
   on a single cluster and require complete database isolation
 * Independent cluster administration - For organizations that require independent administration
-  of individual clusters by separate IT or DevOps teams 
+  of individual clusters by separate IT or DevOps teams
+* Dedicated infrastructure - For running and managing independent Redis Enterprise Clusters on unique and separate resources to serve specific use-cases
 
 ## <a id="features"></a>Key Features
 
@@ -32,6 +33,7 @@ Redis Enterprise Tile Manager for PCF includes these key features:
 * Deploy one or more Redis Enterprise for PCF tile deployments through a Web UI
 * Visibility into the currently installed RE tiles, their names, and their port assignment
 * Ability to assign TCP port ranges to each tile without IP overlap
+* Ability to centrally stage upgrades of individual clusters to the latest Redis Enterprise Cluster release
 
 ## <a id="snapshot"></a>Product Snapshot
 
@@ -42,23 +44,23 @@ This table provides version and version-support information about Redis Enterpri
     <th>Details</th>
     <tr>
         <td>Tile version</td>
-        <td>v1.0.59</td>
+        <td>v1.0.66</td>
     </tr>
     <tr>
         <td>Release date</td>
-        <td>June 10, 2019</td>
+        <td>July 17, 2019</td>
     </tr>
     <tr>
         <td>Software component version</td>
-        <td>Redis Enterprise 5.4.2-20, Redis Enterprise for PCF v5.4.22000164</td>
+        <td>Redis Enterprise 5.4.4-7, Redis Enterprise for PCF v5.4.40700169</td>
     </tr>
     <tr>
         <td>Compatible Ops Manager version(s)</td>
-        <td>v2.4.x</td>
+        <td>v2.6.x, v2.5.x, v2.4.x</td>
     </tr>
     <tr>
         <td>Compatible Pivotal Application Service version(s)</td>
-        <td>v2.4.x</td>
+        <td>v2.6.x, v2.5.x, v2.4.x</td>
     </tr>
     <tr>
        <td>BOSH stemcell version</td>
@@ -83,7 +85,7 @@ or to [Redis Labs support](mailto:support@redislabs.com).
 
 ## <a id="license"></a>License
 
-Customers interested in trying out the Redis Enterprise Tile Manager for PCF can download the tile 
+Customers interested in trying out the Redis Enterprise Tile Manager for PCF can download the tile
 and install it with the trial license. (Limitations apply)
 
 Use in production and 24/7 support requires a production license for Redis Enterprise Cluster for PCF.
